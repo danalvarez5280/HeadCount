@@ -1,40 +1,56 @@
 # HeadCount 2.0
 
-  HeadCount 2.0 is designed to practice breaking out logic and creating small reusable React Components. The project starts by bringing in a data set of school participation stats by year per district. The goal is to create a React application that can display this data in a meaningful way. In the spirit of TDD we have created some unit tests for you to start off with. These tests will help you break out logic to a helper DistrictRepository Class. After you finish `iteration 1` you'll move on to testing and creating a react application. This application used `create-react-app`.
+HeadCount 2.0 is a project designed to challenge your skills at manipulating data and creating small, reusable React components.  
 
-  Project Goals:
-    * Learning to separate logic, which organizes and improves testing.
-    * Breaking out into small modular components and passing props.
-    * Learning to use PropTypes.
-    * Unit and Integration testing for each component.
+You will start the project by importing CSV files containing various educational stats from districts within Colorado by year, per district.  
 
-## Data Access Layer
+In the spirit of TDD we have created some unit tests for you to start off with. These tests will help you break out calculation logic into a `DistrictRepository` class. After you finish `iteration 1` you'll move on to creating the rest of the react application on your own, with the expectation that you will continue to test the application on your own.
 
- The project is broken out into iterations starting with `iteration 0`! Good Luck!
+This application was built using the `create-react-app` boilerplate. This boilerplate provides a lot of build in content and dependencies for free. Take a few minutes to read through [the documentation](https://github.com/facebookincubator/create-react-app), and remember to refer back to these docs if you run into unexpected issues.  
 
-#### Iteration 0 - Initial data
-  Create an constructor/class that takes in data to store and format. Tests have been written to help guide you in this process. You should pass each iteration's relative tests before moving forward. For iteration 0, you will pass all tests in the `iteration-0.test.js`
-  Things to keep in mind:
-  * The data coming in has capitalized methods, ex: Location. As a co-developer I have made a decision that all methods will be using camelCase. So the tests I have written for you will reflect that.
-  * Whats the easiest way to format this data? What decisions will you make that will affect you later on. The tests written ask for an object to be returned. Keep in mind that an array is just an object. SO you have the choice on how to format it. What will be easier to manage?
+## Project Goals
+* Separate application logic into small, testable functions.
+* Create modular, reusable React components.
+* Use propTypes to validate props passed to each component.
+* Write meaningful, comprehensive unit and integration tests.
 
-The `DistrictRepository` is responsible for holding our district data. It offers the following methods:
+## Project Requirements
 
-* `data` which is created during the initial creation of the DistrictRepository.
+This project is broken out into multiple iterations. You are expected to complete all required iterations for a passing score, additional extensions are provided to push your comfort level.  
+
+### Data Access Layer
+
+#### Iteration 0 - Initial Data
+  Create a constructor/class that takes in data and formats it appropriately. Tests have been written to help guide you in this process. You should pass each iterations' relative tests before moving forward. For `Iteration 0`, tests can be found in `test/unit/iteration-0.test.js`.  
+
+**Things to keep in mind:**  
+* Treat the data coming in as if it is from a third party. The existing tests are written in a particular format - you are encouraged to continue the camelCase pattern that is provided within the tests, although you can also choose to write your code differently as long as you stay consistent within your app.  
+
+* How you choose to manipulate the data will determine how you can interact with it as the app expands. Use JavaScript to it's advantage and spend time thinking about what types of operations you will need to call on the data provided.
+
+**Notes on the District Repository**  
+As an example, take a minute to look at the `kindergartners_in_full_day_program.js` data file.  
+
+The `DistrictRepository` helper class you create will be responsible for holding data pertaining to each educational district. Off the bat, it should contain a `.data()` method that returns the information pertaining to to that file:  
+
+Example:  
 
 ```javascript
   const district = new DistrictRepository(data);
-  district.data #=> // an object/array depending on how you want to sort your data.
+  district.data // =>s an object or an array depending on how you want to sort your data that pulls in the information from this given file.
 ```
 #### Iteration 1 - Finding Data
-Here we will solve the problem of finding a single or multiple data points.
-You will be working on passing the tests for `iteration-1-part 1 & 2`.
+Here we will solve the problem of finding singular or multiple data points.  
 
-The `DistrictRepository` is responsible for finding our data and returning it. It offers the following methods:
+You will be working on passing the tests in `iteration-1-part1.js` and `iteration-1-part2.js`.
 
-* `find_by_name(string)` - returns either `undefined` or an `Object` having done a *case insensitive* search
+Besides pulling in a particular file, the `DistrictRepository` should also be responsible for parsing data based on search criteria. It should offer the following methods:
 
-* `find_all_matching(string)` - returns an empty array `[]`, or an array of objects `[Object, Object]`. *case insensitive*.
+* `.find_by_name()` - returns either `undefined` or `{}` having done a *case insensitive* search
+
+* `.find_all_matching()` - returns an empty array `[]`, or an array of objects `[Object, Object]`, also *case insensitive*.
+
+Example:  
 
 ```javascript
 import kindergartnerData from '../../data/kindergartners_in_full_day_program.js';
@@ -42,68 +58,87 @@ import kindergartnerData from '../../data/kindergartners_in_full_day_program.js'
 const district = new DistrictRepository(kindergartnerData);
 
 district.findByName('ACADEMY 20').data;
-# => { "2004": 0.302, "2005": 0.267, "2006": 0.354, "2007": 0.392, "2008": 0.385, "2009":  0.39, "2010": 0.436, "2011": 0.489, "2012": 0.479, "2013": 0.488, "2014": 0.49 };
+// => { "2004": 0.302, "2005": 0.267, "2006": 0.354, "2007": 0.392, "2008": 0.385, "2009":  0.39, "2010": 0.436, "2011": 0.489, "2012": 0.479, "2013": 0.488, "2014": 0.49 };
 ```
 
 ## Visual layer
 
-The visual layer will be a single page application using React. Each component should be thoroughly tested and props should have validation `PropTypes`.
+**Overview:**
+The visual layer will be a single page application using React. Each component should be thoroughly tested with defined `PropTypes` validating what props are being passed in.
 
 #### Iteration 2 - Displaying Data
 
-  In this iteration you will be bringing in data and creating components to display it. Each component should be thoroughly tested before moving on. This will be a lot easier to do if you break out into small modular components.
+Now that you have manipulated the data, it's time to build out the front end to display that information. Each component should be thoroughly tested before moving on. This will be a lot easier to do if you break things out into small, modular components.  
 
-  Each districts data point:
-   * should be rounded to the nearest hundredth
-   * should have a *visual indication* if the data is below & above `.5`
+As you look into each district, the data points should meet the following criteria:  
 
-  It should end up looking similar to this:
-  ![](http://i.imgur.com/GzhO2EO.png)
-  That being said feel free to get creative!
+* All data should be rounded to the nearest hundredth (ie: .001).
+* All data should have a *visual indication* of if the data is above or below `0.5`. The provided comp below uses red and green colors to indicate the difference as an example, but you should tap into your front-end-developer design skills and come up with a better way to indicate those values.   
 
-### Iteration 3 - Search
+![Iteration 2 Comp Screen Shot](http://i.imgur.com/GzhO2EO.png)  
 
-  In this iteration you should be creating a search functionality.
-  It should be *case insensitive* and should update on key press event.
-  *hint* Use your helper class!
+CSS **is** graded on this project. Choose something other than red and green.  
 
-### Iteration 4 - Back to Data Layer Average
-  So now we should be able to display and search for districts! We also want the ability to compare two district averages. For iteration 4, you will create a new method on DistrictRepository called `compareDistricts`. This will take in two arguments an answer rounded to the nearest hundredth.
+### Iteration 3 - Search  
+
+Users should be able to search for a particular district title.  
+
+The search should be *case insensitive* and should fire on each key press.  
+*Hint:* Use your helper `DistrictRepository` class!  
+
+### Iteration 4 - Comparative Data Analysis  
+
+Now that we can average and search for individual districts, we should be able to compare two districts to each other. For iteration 4, create a new method on DistrictRepository called `compareDistrictAverages`. This will take in two arguments and return an answer rounded to the nearest hundredth. There are existing tests to help you with this step.  
+
+Example:  
 
 ```javascript
   district.compareDistrictAverages('ACADEMY 20', 'Colorado');
-  #=> { "ACADEMY 20": 0.407, "COLORADO": 0.53, "compared": 0.768};
-
+  // => { "ACADEMY 20": 0.407, "COLORADO": 0.53, "compared": 0.768};
 ```
 
-### Iteration 5 - Visually Comparing Districts
+### Iteration 5 - Displaying Compared Data
 
-  Back to react! So now that we can compare two districts together lets go ahead and visually display that. Heres what needs to happen in this iteration:
+Now that we can compare data between two districts in code, we need to display that to our users. This iteration should meet the following criteria:  
 
-  1. Each district needs to be clickable.
-  2. Once clicked there needs to be a visual indication that the district has been clicked.
-  3. If clicked again the district should revert back to its previous state.
-  4. If the district is clicked a clone of it must be made and displayed at the top of the page. ex:
-    ![](http://i.imgur.com/pqP1E3N.png)
-  5. Once two districts have been clicked it should look something like, ex:
-    ![](http://i.imgur.com/KpSdTaW.png)
-    *hint* There should only ever be a maximum of two districts selected.
+1. Users should be able to click on an individual district.
+2. Once clicked, there should be a visual indication in the UI that the district has been clicked.
+3. If clicked a second time, the district should revert back to its previous state. *Hint:* Use CSS classes to help toggle between the UI changes.  
+4. Once a district is selected, it must be displayed at the top of the page. It should also remain in the collection of districts displayed in the main body of the app.  
 
-### Extension - More Data!
-  * Make a header with buttons of all the different files you could load. Each button should replace the current displayed `DistrictRepository`.
-  * When a district is selected it should also take the average of participation throughout all of it's years and display it.
+Example:  
+
+![](http://i.imgur.com/pqP1E3N.png)  
+
+5. Once two districts have been clicked, there should be a comparative analysis between the two.  
+
+Example:  
+
+![](http://i.imgur.com/KpSdTaW.png)  
+
+**A maximum of two districts should be able to be selected.**  
+
+### Extensions
+
+#### More Data Files  
+* Right now we are only loading the `kindergartners_in_full_day_program.js` file. Create a header with buttons that dynamically load each of the different files provided in this repo.  
+* The UI should change to reflect the data provided by the file selected.  
+* The buttons should be modular React components.  
+
+#### Individual District Data Analysis
+* When a district is selected it should display the average of its data anywhere it is displayed.  
 
 ## Specification Adherence
 
 - 4 - The application completes all 5 iterations above and implements one or more of the extensions.
-- 3 - The application completes 5 iterations.
+- 3 - The application completes all 5 iterations.
 - 2 - The application is in a usable state, but is missing 1 of the features outlined in the specification above.
 - 1 - The application is missing multiple features essential to having a complete application.
 
 ## Code Quality
 
 - 4 - Developer demonstrates complete understanding of React with appropriately separated components and exceptionally well refactored code.
-- 3 - Developer appears comfortable in React demonstrated gaps in knowledge of how the tools should be used and/or the app contains unrefactored code.
+- 3 - Developer appears comfortable in React but demonstrated gaps in knowledge of how the tools should be used and/or the app contains unrefactored code.
 - 2 - Developer selected appropriate libraries and frameworks to build the app but did not use them as intended. Significant refactoring necessary.
 - 1 - Developer did not make any effort to use React effectively or refactor code.
 
@@ -112,11 +147,11 @@ The visual layer will be a single page application using React. Each component s
 - 4 - Developer has made a targeted effort to make the app appealing and user friendly. Evaluator has minimal recommendations for design changes.
 - 3 - Developer has made a targeted effort to make the app appealing and user friendly. Evaluator has multiple recommendations for design changes.
 - 2 - Developer has made intentional design decisions to create a user friendly application but Louisa would be mad.
-- 1 - Developer did minimal to no CSS for this project besides what was indicated in the comp.
+- 1 - Developer did minimal to no CSS for this project.
 
 ## Testing
 
-- 4 - Every component is tested from both a unit and acceptance standpoint, all crucial functionality is tested
-- 3 - Almost all components are tested to a level that indicates developer has an understanding of testing
-- 2 - A valid attempt was made to test functionality with obvious gaps where functionality is not tested
+- 4 - Every component is tested from both a unit and acceptance standpoint, all crucial functionality is tested.
+- 3 - Almost all components are tested to a level that indicates developer has an understanding of testing.
+- 2 - There are obvious gaps where functionality is not tested.
 - 1 - There was little to no attempt to test this application.
