@@ -31,7 +31,7 @@ This project is broken out into multiple iterations. You are expected to complet
 **Notes on the District Repository**  
 As an example, take a minute to look at the `kindergartners_in_full_day_program.js` data file.  
 
-The `DistrictRepository` helper class you create will be responsible for holding data pertaining to each educational district. Off the bat, it should contain a `.data()` method that returns the information pertaining to to that file:  
+The `DistrictRepository` helper class you create will be responsible for holding data pertaining to each educational district. Off the bat, it should contain a `.data` method that returns the information pertaining to to that file:  
 
 Example:  
 
