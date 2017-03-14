@@ -140,7 +140,12 @@ Example:
 - 4 - Developer demonstrates complete understanding of React with appropriately separated components and exceptionally well refactored code.
 - 3 - Developer appears comfortable in React but demonstrated gaps in knowledge of how the tools should be used and/or the app contains unrefactored code.
 - 2 - Developer selected appropriate libraries and frameworks to build the app but did not use them as intended. Significant refactoring necessary.
-- 1 - Developer did not make any effort to use React effectively or refactor code.
+- 1 - Developer did not make any effort to use React effectively or refactor code.  
+
+## PropType Implementation
+
+- Pass - Proptype validation is implemented for any component receiving props.  
+- Fail - There are components missing proptype validation.  
 
 ## CSS/Design
 
