@@ -46,9 +46,9 @@ You will be working on passing the tests in `iteration-1-part1.js` and `iteratio
 
 Besides pulling in a particular file, the `DistrictRepository` should also be responsible for parsing data based on search criteria. It should offer the following methods:
 
-* `.find_by_name()` - returns either `undefined` or `{}` having done a *case insensitive* search
+* `.findByName()` - returns either `undefined` or `{}` having done a *case insensitive* search
 
-* `.find_all_matching()` - returns an empty array `[]`, or an array of objects `[Object, Object]`, also *case insensitive*.
+* `.findAllMatching()` - returns an empty array `[]`, or an array of objects `[Object, Object]`, also *case insensitive*.
 
 Example:  
 
