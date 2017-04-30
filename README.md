@@ -8,7 +8,18 @@ In the spirit of TDD we have created some unit tests for you to start off with. 
 
 This application was built using the `create-react-app` boilerplate. This boilerplate provides a lot of build in content and dependencies for free. Take a few minutes to read through [the documentation](https://github.com/facebookincubator/create-react-app), and remember to refer back to these docs if you run into unexpected issues.  
 
+## Set Up
+
+Fork this project
+
+Run `npm install` from the root directory
+
+Run `npm start` and visit localhost:3000 in your browser
+
+You can begin running your tests with `npm test`
+
 ## Project Goals
+
 * Separate application logic into small, testable functions.
 * Create modular, reusable React components.
 * Use propTypes to validate props passed to each component.
