@@ -10,11 +10,11 @@
 
 ## Data Access Layer
 
- The project is broken out into iterations starting with `iteration 0`! Good Luck!
+ The project is broken out into iterations starting with `iteration 0`! That being said you may change tests to fit your needs. The tests given are only a suggested way of building this project out. If you decide to change the design of these tests just know that we expect those changes to be tested fully. This includes any helper functions you create. Good luck!  
 
 #### Iteration 0 - Initial data
   Create an constructor/class that takes in data to store and format. Tests have been written to help guide you in this process. You should pass each iteration's relative tests before moving forward. For iteration 0, you will pass all tests in the `iteration-0.test.js`
-  Things to keep in mind:
+  Things to keep in mind / consider:
   * The data coming in has capitalized methods, ex: Location. As a co-developer I have made a decision that all methods will be using camelCase. So the tests I have written for you will reflect that.
   * Whats the easiest way to format this data? What decisions will you make that will affect you later on. The tests written ask for an object to be returned. Keep in mind that an array is just an object. SO you have the choice on how to format it. What will be easier to manage?
 
@@ -32,9 +32,9 @@ You will be working on passing the tests for `iteration-1-part 1 & 2`.
 
 The `DistrictRepository` is responsible for finding our data and returning it. It offers the following methods:
 
-* `find_by_name(string)` - returns either `undefined` or an `Object` having done a *case insensitive* search
+* `findByName(string)` - returns either `undefined` or an `Object` having done a *case insensitive* search
 
-* `find_all_matching(string)` - returns an empty array `[]`, or an array of objects `[Object, Object]`. *case insensitive*.
+* `findAllMatching(string)` - returns an empty array `[]`, or an array of objects `[Object, Object]`. *case insensitive*.
 
 ```javascript
 import kindergartnerData from '../../data/kindergartners_in_full_day_program.js';
@@ -63,7 +63,7 @@ The visual layer will be a single page application using React. Each component s
 
 ### Iteration 3 - Search
 
-  In this iteration you should be creating a search functionality.
+  In this iteration you'll create a search functionality.
   It should be *case insensitive* and should update on key press event.
   *hint* Use your helper class!
 
