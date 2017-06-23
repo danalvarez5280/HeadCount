@@ -90,13 +90,7 @@ As you look into each district, the data points should meet the following criter
 
 CSS **is** graded on this project. Choose something other than red and green.  
 
-<<<<<<< HEAD
-  In this iteration you'll create a search functionality.
-  It should be *case insensitive* and should update on key press event.
-  *hint* Use your helper class!
-=======
 ### Iteration 3 - Search  
->>>>>>> 4849fa76e8efdf90520c58904ad9e0fd178a44d7
 
 Users should be able to search for a particular district title.  
 
