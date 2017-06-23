@@ -120,3 +120,9 @@ The visual layer will be a single page application using React. Each component s
 - 3 - Almost all components are tested to a level that indicates developer has an understanding of testing
 - 2 - A valid attempt was made to test functionality with obvious gaps where functionality is not tested
 - 1 - There was little to no attempt to test this application.
+
+## Surprise and Delight
+- Unicorn 
+- Hot Fire
+- Sparkles
+- Magic
