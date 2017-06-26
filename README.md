@@ -173,7 +173,7 @@ Example:
 - 1 - There was little to no attempt to test this application.
 
 ## Surprise and Delight
-- Unicorn
-- Hot Fire
-- Sparkles
-- Magic
+- 4 - Unicorn
+- 3- Hot Fire
+- 2- Sparkles
+- 1- Magic
