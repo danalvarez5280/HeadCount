@@ -174,6 +174,6 @@ Example:
 
 ## Surprise and Delight
 - 4 - Unicorn
-- 3- Hot Fire
-- 2- Sparkles
-- 1- Magic
+- 3 - Hot Fire
+- 2 - Sparkles
+- 1 - Magic
