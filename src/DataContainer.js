@@ -1,5 +1,6 @@
 import React from 'react';
 import DataCards from './DataCards';
+import PropTypes from 'prop-types';
 
 
 const DataContainer = ({ schoolInfo, toggleClass, hideYears }) => {
@@ -11,6 +12,12 @@ const DataContainer = ({ schoolInfo, toggleClass, hideYears }) => {
       { districtInfo }
     </div>
   )
+}
+
+DataContainer.propTpes = {
+  schoolInfo: PropTypes.array.isRequired,
+  toggleClass: PropTypes.string.isRequired,
+  hideYears: PropTypes.string.isRequired
 }
 
 export default DataContainer;
