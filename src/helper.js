@@ -1,4 +1,4 @@
-export default class DistrictRepository {
+class DistrictRepository {
   constructor(rawData){
     this.data = this.newData(rawData)
   }
@@ -33,3 +33,5 @@ export default class DistrictRepository {
   }
 
 }
+
+export default DistrictRepository;
