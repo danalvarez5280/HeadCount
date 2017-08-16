@@ -12,15 +12,33 @@ class App extends Component {
     super();
 
     this.state = {
-      data: district.findAllMatches()
+      data: district.findAllMatches(),
+      cardClassToggle: 'hide-year-stats',
     }
+
+    this.hideYearStats = this.hideYearStats.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  hideYearStats(e) {
+    (this.state.cardClassToggle === 'hide-year-stats') ? this.setState({
+      cardClassToggle: 'year-stats'
+    }) : this.setState({
+      cardClassToggle: 'hide-year-stats'
+    })
+  }
+
+  handleChange(e) {
+    this.setState({
+      data: district.findAllMatches(e.target.value)
+    })
   }
 
   render() {
     return (
       <div>
-        <Search />
-        <DataContainer schoolInfo={ this.state.data } />
+        <Search handleChange={ this.handleChange } />
+        <DataContainer schoolInfo={ this.state.data } toggleClass={ this.state.cardClassToggle } hideYears={ this.hideYearStats } />
       </div>
     )
   }

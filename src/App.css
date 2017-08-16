@@ -23,6 +23,7 @@
   background-color: aquamarine;
   border: none;
   border-radius: 3px;
+  cursor: pointer;
   height: 25px;
   margin: 10px;
   width: 75px;
@@ -44,6 +45,7 @@
   display: flex;
   flex-direction: column;
   margin: 15px;
+  cursor: pointer;
   width: 300px;
 }
 
@@ -58,16 +60,14 @@
   flex-direction: column;
   justify-content: center;
 
-  /*overflow: hidden;
-  height: auto;
-  flex: 1;
-  transition: flex 0.3s ease-out;*/
 }
-
-/*.year-stats:hover {
-  max-height: : 0;
-}*/
 
 .year-stats p {
   margin: 6px 0;
+}
+
+/***********************APP***************************/
+
+.hide-year-stats {
+  display: none;
 }
