@@ -1,1 +1,73 @@
 /*APP COMPONENT RELATED CSS GOES HERE*/
+
+/***********************Search***************************/
+
+.search-field {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  width: 300px;
+}
+
+.search {
+  background-color: lightgray;
+  border: none;
+  border-radius: 3px;
+  height: 40px;
+  padding-left: 10px;
+  width: 300px;
+}
+
+.submit-btn {
+  background-color: aquamarine;
+  border: none;
+  border-radius: 3px;
+  height: 25px;
+  margin: 10px;
+  width: 75px;
+}
+
+/***********************DataContainer***************************/
+
+.data-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/***********************DataCards***************************/
+
+.data-card {
+  background-color: salmon;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  width: 300px;
+}
+
+.data-card h2 {
+  margin: 15px 15px 10px 15px;
+  text-align: center;
+}
+
+.year-stats {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /*overflow: hidden;
+  height: auto;
+  flex: 1;
+  transition: flex 0.3s ease-out;*/
+}
+
+/*.year-stats:hover {
+  max-height: : 0;
+}*/
+
+.year-stats p {
+  margin: 6px 0;
+}

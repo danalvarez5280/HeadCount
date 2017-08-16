@@ -6,9 +6,9 @@ const DataCards = ({location, yearData}) => {
   let percentages = schoolYear.map( (val, i) => <p key={ i } > { val }: { yearData[val] } </p> )
 
   return(
-    <div>
+    <div className='data-card'>
       <h2>{ location }</h2>
-      <div>
+      <div className='year-stats'>
         { percentages }
       </div>
     </div>
