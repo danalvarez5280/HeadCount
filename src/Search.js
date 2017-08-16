@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Search extends Component {
   constructor() {
@@ -19,4 +20,9 @@ export default class Search extends Component {
       </div>
     )
   }
+}
+
+Search.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  handleClick: PropTypes.func
 }
