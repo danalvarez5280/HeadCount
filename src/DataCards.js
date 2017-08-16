@@ -7,7 +7,16 @@ const DataCards = ({location, yearData, toggleClass, hideYears}) => {
   let pStyle = {
     color: 'aquamarine'
   }
-  let percentages = schoolYear.map( (val, i) => <p style={pStyle} key={ i } > { val }: { yearData[val] } </p> )
+  let lowScores = {
+    color: 'red'
+  }
+  let percentages = schoolYear.map( (val, i) => {
+    if (yearData[val] >= 0.5) {
+      return <p style={pStyle} key={ i } > { val }: { yearData[val] } </p>
+    } else {
+      return <p style={lowScores} key={ i } > { val }: { yearData[val] } </p>
+    }
+  })
 
   return(
     <div className='data-card' onClick={ hideYears }>
