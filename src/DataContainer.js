@@ -8,7 +8,7 @@ const DataContainer = ({ schoolInfo }) => {
   const districtInfo = schoolInfo.map( (school, i) => <DataCards key={ i } location={ school.location } yearData={ school.data } /> )
 
   return(
-    <div>
+    <div className='data-container'>
       { districtInfo }
     </div>
   )
