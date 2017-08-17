@@ -3,9 +3,9 @@ import DataCards from './DataCards';
 import PropTypes from 'prop-types';
 
 
-const DataContainer = ({ schoolInfo, toggleClass, hideYears }) => {
+const DataContainer = ({ schoolInfo }) => {
 
-  const districtInfo = schoolInfo.map( (school, i) => <DataCards key={ i } location={ school.location } yearData={ school.data } toggleClass={ toggleClass } hideYears={ hideYears }/> )
+  const districtInfo = schoolInfo.map( (school, i) => <DataCards key={ i } location={ school.location } yearData={ school.data }  /> )
 
   return(
     <div className='data-container'>
@@ -16,8 +16,6 @@ const DataContainer = ({ schoolInfo, toggleClass, hideYears }) => {
 
 DataContainer.propTpes = {
   schoolInfo: PropTypes.array.isRequired,
-  toggleClass: PropTypes.string.isRequired,
-  hideYears: PropTypes.string.isRequired
 }
 
 export default DataContainer;

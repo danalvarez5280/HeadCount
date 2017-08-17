@@ -23,6 +23,6 @@ export default class Search extends Component {
 }
 
 Search.propTypes = {
-  handleChange: PropTypes.func,
+  handleChange: PropTypes.func.isRequired,
   handleClick: PropTypes.func
 }

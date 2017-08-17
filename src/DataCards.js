@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const DataCards = ({location, yearData, toggleClass, hideYears}) => {
+export default class DataCards extends Component {
+    constructor() {
+      super()
 
+    this.state = {
+      style: 'hide-year-stats'
+    }
+  this.hideYearStats = this.hideYearStats.bind(this)
+}
+
+hideYearStats(e) {
+  (this.state.style === 'hide-year-stats') ? this.setState({
+    style: 'year-stats'
+  }) : this.setState({
+    style: 'hide-year-stats'
+  })
+}
+
+  render() {
+  const {location, yearData} = this.props
   let schoolYear= Object.keys(yearData)
   let pStyle = {
     color: 'aquamarine'
@@ -19,22 +37,19 @@ const DataCards = ({location, yearData, toggleClass, hideYears}) => {
   })
 
   return(
-    <div className='data-card' onClick={ hideYears }>
-      <div className='district-name' >
-        <h2>{ location }</h2>
+      <div className='data-card' onClick={ this.hideYearStats }>
+        <div className='district-name' >
+          <h2>{ location }</h2>
+        </div>
+        <div ref={(element => this.div = element)} className={this.state.style} >
+          { percentages }
+        </div>
       </div>
-      <div className={ toggleClass }>
-        { percentages }
-      </div>
-    </div>
-  )
+    )
+  }
 }
 
 DataCards.propTypes = {
   location: PropTypes.string.isRequired,
   yearData: PropTypes.object.isRequired,
-  toggleClass: PropTypes.string.isRequired,
-  hideYears: PropTypes.func.isRequired
 }
-
-export default DataCards;
