@@ -70,4 +70,6 @@
 
 .hide-year-stats {
   display: none;
+  /*visibility: hidden;*/
+  /*display: hide;*/
 }
