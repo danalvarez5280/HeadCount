@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 
 const DataContainer = ({ schoolInfo, compare }) => {
-
-  const districtInfo = schoolInfo.map( (school, i) => <DataCards key={ i } location={ school.location } yearData={ school.data } compare={ compare } /> )
+  const displayData = true;
+  const districtInfo = schoolInfo.map( (school, i) => <DataCards key={ i } location={ school.location } yearData={ school.data } compare={ compare } displayData={displayData} /> )
 
   return(
     <div className='data-container'>

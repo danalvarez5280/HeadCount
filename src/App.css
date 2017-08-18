@@ -73,3 +73,12 @@
   /*visibility: hidden;*/
   /*display: hide;*/
 }
+
+
+/**********************Compare Container***************/
+
+.compare-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
