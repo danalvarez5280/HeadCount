@@ -40,8 +40,8 @@
 /***********************DataCards***************************/
 
 .data-card {
-  background-color: salmon;
-  border-radius: 10px;
+  /*background-color: salmon;*/
+  /*border-radius: 10px;*/
   display: flex;
   flex-direction: column;
   margin: 15px;
@@ -49,27 +49,40 @@
   width: 300px;
 }
 
-.data-card h2 {
+.district-name {
+  background-color: salmon;
+  border-radius: 10px;
   margin: 15px 15px 10px 15px;
   text-align: center;
 }
 
 .year-stats {
   align-items: center;
+  background-color: salmon;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-
 .year-stats p {
   margin: 6px 0;
 }
-
-/***********************APP***************************/
 
 .hide-year-stats {
   display: none;
   /*visibility: hidden;*/
   /*display: hide;*/
+}
+/***********************SchoolCompare***************************/
+
+.comparison-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.compare-results {
+  display: flex;
+  justify-content: center;
 }

@@ -7,6 +7,7 @@ export default class DataCards extends Component {
 
     this.state = {
       style: 'hide-year-stats',
+      clicked: false
     }
   this.hideYearStats = this.hideYearStats.bind(this)
 }
@@ -54,3 +55,12 @@ DataCards.propTypes = {
   location: PropTypes.string.isRequired,
   yearData: PropTypes.object.isRequired,
 }
+
+{/* <div className='data-card' onClick={ () => this.props.compare(location) } >
+  <div className='district-name' onClick={this.hideYearStats}>
+    <h2>{ location }</h2>
+  </div>
+  <div ref={(element => this.div = element)} className={this.state.style} >
+    { percentages }
+  </div>
+</div> */}
