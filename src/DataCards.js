@@ -6,7 +6,7 @@ export default class DataCards extends Component {
       super()
 
     this.state = {
-      style: 'hide-year-stats'
+      style: 'hide-year-stats',
     }
   this.hideYearStats = this.hideYearStats.bind(this)
 }
@@ -19,8 +19,9 @@ hideYearStats(e) {
   })
 }
 
+
   render() {
-  const {location, yearData} = this.props
+  const {location, yearData, compare} = this.props
   let schoolYear= Object.keys(yearData)
   let pStyle = {
     color: 'aquamarine'
@@ -37,8 +38,8 @@ hideYearStats(e) {
   })
 
   return(
-      <div className='data-card' onClick={ this.hideYearStats }>
-        <div className='district-name' >
+      <div className='data-card' onClick={ () => this.props.compare(location) } >
+        <div className='district-name' onClick={this.hideYearStats}>
           <h2>{ location }</h2>
         </div>
         <div ref={(element => this.div = element)} className={this.state.style} >
