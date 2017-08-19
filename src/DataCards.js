@@ -6,18 +6,18 @@ export default class DataCards extends Component {
       super()
 
     this.state = {
-      style: 'hide-year-stats',
+      style: 'year-stats',
     }
-  this.hideYearStats = this.hideYearStats.bind(this)
+  // this.hideYearStats = this.hideYearStats.bind(this)
 }
 
-hideYearStats(e) {
-  (this.state.style === 'hide-year-stats') ? this.setState({
-    style: 'year-stats'
-  }) : this.setState({
-    style: 'hide-year-stats'
-  })
-}
+// hideYearStats(e) {
+//   (this.state.style === 'hide-year-stats') ? this.setState({
+//     style: 'year-stats'
+//   }) : this.setState({
+//     style: 'hide-year-stats'
+//   })
+// }
 
 
   render() {
@@ -39,7 +39,7 @@ hideYearStats(e) {
 
   return(
       <div className='data-card' onClick={ () => compare(location) } >
-        <div className='district-name' onClick={ this.hideYearStats }>
+        <div className='district-name'>
           <h2>{ location }</h2>
         </div>
         <div ref={(element => this.div = element)} className={ this.state.style } >
