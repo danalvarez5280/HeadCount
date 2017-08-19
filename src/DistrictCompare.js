@@ -14,9 +14,7 @@ const DistrictCompare = ({ comparisonData, removeCompare }) => {
   const keys = Object.keys(compareTwoDistricts)
   const keyValues = keys.map(data => compareTwoDistricts[data])
   const dataDisplay = comparisonData.map((district, i) =>
-  <div className='pseudo' onClick={ removeCompare }>
-    <DataCards key={ i } location={ district.location } yearData={ district.data } />
-  </div>)
+    <DataCards key={ i } location={ district.location } yearData={ district.data } compare={ removeCompare }/>)
 
   return(
     <div className='district-compare'>
