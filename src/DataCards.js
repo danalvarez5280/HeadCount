@@ -38,7 +38,7 @@ hideYearStats(e) {
   })
 
   return(
-      <div className='data-card' onClick={ () => this.props.compare(location) } >
+      <div className='data-card' onClick={ () => compare(location) } >
         <div className='district-name' onClick={this.hideYearStats}>
           <h2>{ location }</h2>
         </div>
