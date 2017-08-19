@@ -39,10 +39,10 @@ hideYearStats(e) {
 
   return(
       <div className='data-card' onClick={ () => compare(location) } >
-        <div className='district-name' onClick={this.hideYearStats}>
+        <div className='district-name' onClick={ this.hideYearStats }>
           <h2>{ location }</h2>
         </div>
-        <div ref={(element => this.div = element)} className={this.state.style} >
+        <div ref={(element => this.div = element)} className={ this.state.style } >
           { percentages }
         </div>
       </div>
