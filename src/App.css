@@ -40,7 +40,7 @@
 /***********************DataCards***************************/
 
 .data-card {
-  background-color: salmon;
+  background-color: green;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -51,12 +51,6 @@
 
 .data-card2 {
   background-color: salmon;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  margin: 15px;
-  cursor: pointer;
-  width: 300px;
 }
 
 .district-name {

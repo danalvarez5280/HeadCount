@@ -1,5 +1,5 @@
 import React from 'react';
-import DataCards from './DataCards';
+// import DataCards from './DataCards';
 import DistrictRepository from './helper';
 import kinderData from '../data/kindergartners_in_full_day_program';
 import PropTypes from 'prop-types';
