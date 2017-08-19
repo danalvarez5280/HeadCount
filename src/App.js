@@ -14,7 +14,8 @@ class App extends Component {
 
     this.state = {
       data: district.findAllMatches(),
-      compare: []
+      compare: [],
+      compareCards: []
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -30,30 +31,58 @@ class App extends Component {
 
   compareDistricts(location) {
     console.log(location);
-    const compare1 = district.findByName(location)
-    this.state.compare.push(compare1)
-    this.setState({
-      compare: this.state.compare
-    })
+    const compareItem = district.findByName(location);
+    const compareData = this.state.compare;
+    const index = compareData.indexOf(compareItem);
+
+    if(compareData.includes(compareItem)){
+      compareData.splice(index, 1)
+      this.setState({
+        compare: compareData,
+        compareCards: compareData
+      })
+    }
+    if(compareData.length === 2){
+      compareData.pop()
+        this.setState({
+          compare: compareData,
+          compareCards: compareData
+        })
+        compareData.push(compareItem)
+        this.setState({
+          compare: compareData,
+          compareCards: compareData
+        })
+    }
+    else {
+      this.state.compare.push(compareItem)
+      this.setState({
+        compare: compareData,
+        compareCards: compareData
+      })
+    }
+    // location.parent.classlist.toggle('.data-card2') was trying to get a toggle class going but no luck.
   }
 
   removeCompare(location) {
     const choice = district.findByName(location)
+    const compareData = this.state.compare
     const index = this.state.compare.indexOf(choice)
-    this.state.compare.splice(index, 1)
+    compareData.splice(index, 1)
     this.setState({
-      compare: this.state.compare
+      compare: compareData
     })
     console.log('im running');
   }
 
   render() {
-    console.log(this.state.compare);
+    console.log('state', this.state.compare);
     return (
       <div>
         <Search handleChange={ this.handleChange } />
+        <DataContainer schoolInfo={ this.state.compare } compare={ this.removeCompare }/>
         {
-         (this.state.compare).length === 2 && <DistrictCompare comparisonData={ this.state.compare } removeCompare={ this.removeCompare }/>
+          (this.state.compare).length >= 1 && <DistrictCompare comparisonData={ this.state.compare }/>
         }
         <DataContainer schoolInfo={ this.state.data } compare={ this.compareDistricts }/>
       </div>

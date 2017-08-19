@@ -40,8 +40,18 @@
 /***********************DataCards***************************/
 
 .data-card {
-  /*background-color: salmon;
-  border-radius: 10px;*/
+  background-color: salmon;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  cursor: pointer;
+  width: 300px;
+}
+
+.data-card2 {
+  background-color: salmon;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   margin: 15px;
@@ -50,16 +60,14 @@
 }
 
 .district-name {
-  background-color: salmon;
   border-radius: 10px;
   margin-bottom: 5px;
-  /*margin: 15px 15px 10px 15px;*/
+  margin: 15px 15px 10px 15px;
   text-align: center;
 }
 
 .year-stats {
   align-items: center;
-  background-color: salmon;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -84,7 +92,12 @@
 }
 
 .comp-info {
+  align-items: center;
   background-color: aquamarine;
   border-radius: 10px;
+  display: flex;
+  flex: .9;
+  flex-direction: column;
+  justify-content: center;
   padding: 15px;
 }

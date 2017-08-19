@@ -5,19 +5,15 @@ export default class DataCards extends Component {
     constructor() {
       super()
 
-    this.state = {
-      style: 'hide-year-stats',
-    }
-  this.hideYearStats = this.hideYearStats.bind(this)
+    // this.state = {
+    //   style: 'year-stats',
+    // }
+  // this.hideYearStats = this.hideYearStats.bind(this)
 }
 
-hideYearStats(e) {
-  (this.state.style === 'hide-year-stats') ? this.setState({
-    style: 'year-stats'
-  }) : this.setState({
-    style: 'hide-year-stats'
-  })
-}
+// hideYearStats(e) {
+//   this.state.style ? this.state.style = false : this.state.style = true;
+// }
 
 
   render() {
@@ -30,19 +26,19 @@ hideYearStats(e) {
     color: 'red'
   }
   let percentages = schoolYear.map( (val, i) => {
-    if (yearData[val] >= 0.5) {
-      return <p style={pStyle} key={ i } > { val }: { yearData[val] } </p>
-    } else {
-      return <p style={lowScores} key={ i } > { val }: { yearData[val] } </p>
-    }
+      if (yearData[val] >= 0.5) {
+        return <p style={pStyle} key={ i } > { val }: { yearData[val] } </p>
+      } else {
+        return <p style={lowScores} key={ i } > { val }: { yearData[val] } </p>
+      }
   })
 
   return(
       <div className='data-card' onClick={ () => compare(location) } >
-        <div className='district-name' onClick={ this.hideYearStats }>
+        <div className='district-name'>
           <h2>{ location }</h2>
         </div>
-        <div ref={(element => this.div = element)} className={ this.state.style } >
+        <div ref={(element => this.div = element)} className= 'year-stats' >
           { percentages }
         </div>
       </div>
