@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   compareDistricts(location) {
-    console.log(location);
+    // console.log(e.target);
     const compareItem = district.findByName(location);
     const compareData = this.state.compare;
     const index = compareData.indexOf(compareItem);
@@ -42,7 +42,7 @@ class App extends Component {
         compareCards: compareData
       })
     }
-    if(compareData.length === 2){
+    else if(compareData.length === 2){
       compareData.pop()
         this.setState({
           compare: compareData,
@@ -61,7 +61,15 @@ class App extends Component {
         compareCards: compareData
       })
     }
-    // location.parent.classlist.toggle('.data-card2') was trying to get a toggle class going but no luck.
+    this.toggleClass()
+    // e.target.classList.toggle('data-card2')
+    //  was trying to get a toggle class going but no
+  }
+
+  toggleClass() {
+    const change = Document.getElementsByClassName('data-card');
+
+    change.classList.toggle('data-card2')
   }
 
   removeCompare(location) {
@@ -72,7 +80,6 @@ class App extends Component {
     this.setState({
       compare: compareData
     })
-    console.log('im running');
   }
 
   render() {
@@ -82,7 +89,7 @@ class App extends Component {
         <Search handleChange={ this.handleChange } />
         <DataContainer schoolInfo={ this.state.compare } compare={ this.removeCompare }/>
         {
-          (this.state.compare).length >= 1 && <DistrictCompare comparisonData={ this.state.compare }/>
+          (this.state.compare).length === 2 && <DistrictCompare comparisonData={ this.state.compare }/>
         }
         <DataContainer schoolInfo={ this.state.data } compare={ this.compareDistricts }/>
       </div>
