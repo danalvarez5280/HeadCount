@@ -5,6 +5,7 @@ import Search from './Search';
 import DataContainer from './DataContainer';
 import DistrictCompare from './DistrictCompare';
 import './App.css';
+import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 const district = new DistrictRepository(kinderData)
 
@@ -12,20 +13,35 @@ class App extends Component {
   constructor() {
     super();
 
-    this.state = {
-      data: district.findAllMatches(),
-      compare: [],
-      compareCards: []
-    }
-
-    this.handleChange = this.handleChange.bind(this);
-    this.compareDistricts = this.compareDistricts.bind(this);
-    this.removeCompare = this.removeCompare.bind(this);
+  this.state = {
+    data: district.findAllMatches(),
+    compare: [],
+    // compareCards: [],
+    // isHidden: true
   }
+
+  this.handleChange = this.handleChange.bind(this);
+  this.compareDistricts = this.compareDistricts.bind(this);
+  this.removeCompare = this.removeCompare.bind(this);
+  this.handleReset = this.handleReset.bind(this);
+  // this.toggleHidden = this.toggleHidden.bind(this);
+}
+
+  // toggleHidden() {
+  //   this.setState({
+  //     isHidden: !this.state.isHidden
+  //   })
+  // }
 
   handleChange(e) {
     this.setState({
       data: district.findAllMatches(e.target.value)
+    })
+  }
+
+  handleReset(e) {
+    this.setState ({
+      compare: []
     })
   }
 
@@ -39,37 +55,29 @@ class App extends Component {
       compareData.splice(index, 1)
       this.setState({
         compare: compareData,
-        compareCards: compareData
+        // compareCards: compareData
       })
     }
     else if(compareData.length === 2){
       compareData.pop()
         this.setState({
           compare: compareData,
-          compareCards: compareData
+          // compareCards: compareData
         })
         compareData.push(compareItem)
         this.setState({
           compare: compareData,
-          compareCards: compareData
+          // compareCards: compareData
         })
     }
     else {
       this.state.compare.push(compareItem)
       this.setState({
         compare: compareData,
-        compareCards: compareData
+        // compareCards: compareData
       })
     }
-    this.toggleClass()
-    // e.target.classList.toggle('data-card2')
-    //  was trying to get a toggle class going but no
-  }
 
-  toggleClass() {
-    const change = Document.getElementsByClassName('data-card');
-
-    change.classList.toggle('data-card2')
   }
 
   removeCompare(location) {
@@ -87,11 +95,13 @@ class App extends Component {
     return (
       <div>
         <Search handleChange={ this.handleChange } />
-        <DataContainer schoolInfo={ this.state.compare } compare={ this.removeCompare }/>
+        <ReactCSSTransitionGroup transitionName='card' transitionEnterTimeout={700} transitionLeaveTimeout={700}>
+          <DataContainer schoolInfo={ this.state.compare } compareDistricts={ this.removeCompare } />
+        </ReactCSSTransitionGroup>
         {
-          (this.state.compare).length === 2 && <DistrictCompare comparisonData={ this.state.compare }/>
+          (this.state.compare).length === 2 && <DistrictCompare comparisonData={ this.state.compare } handleReset={ this.handleReset }/>
         }
-        <DataContainer schoolInfo={ this.state.data } compare={ this.compareDistricts }/>
+        <DataContainer schoolInfo={ this.state.data } compareDistricts={ this.compareDistricts }/>
       </div>
     )
   }

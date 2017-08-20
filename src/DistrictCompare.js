@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 const district = new DistrictRepository(kinderData)
 
-const DistrictCompare = ({ comparisonData }) => {
+const DistrictCompare = ({ comparisonData, handleReset }) => {
   const distOne = (comparisonData[0]).location;
   const distTwo = (comparisonData[1]).location;
   const compareTwoDistricts = district.compareDistrictAverages(distOne, distTwo);
@@ -17,6 +17,7 @@ const DistrictCompare = ({ comparisonData }) => {
 
   return(
     <div className='district-compare'>
+      <button className='submit-btn' type='Submit' onClick={ handleReset } >Submit</button>
       <div className='comp-info'>
         <p>{distOne}: {keyValues[0]}</p>
         <p>{distTwo}: {keyValues[1]}</p>
