@@ -1,28 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class Search extends Component {
-  constructor() {
-    super();
+const Search = ({ handleChange }) => {
 
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    console.log('clicked');
-  }
-
-  render() {
-    return(
-      <div className='search-field'>
-        <input className='search' placeholder='Search' onChange={ this.props.handleChange }/>
-        <button className='submit-btn' type='Submit' onClick={ this.handleClick }> Submit </button>
-      </div>
-    )
-  }
+  return(
+    <div className='search-field'>
+      <input className='search' placeholder='Search District Name' onChange={ handleChange }/>
+    </div>
+  )
 }
 
 Search.propTypes = {
-  handleChange: PropTypes.func.isRequired,
-  handleClick: PropTypes.func
+  handleChange: PropTypes.func,
 }
+
+export default Search;

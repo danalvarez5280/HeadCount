@@ -1,5 +1,3 @@
-/*APP COMPONENT RELATED CSS GOES HERE*/
-
 /***********************Search***************************/
 
 .search-field {
@@ -19,16 +17,6 @@
   width: 300px;
 }
 
-.submit-btn {
-  background-color: aquamarine;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  height: 25px;
-  margin: 10px;
-  width: 75px;
-}
-
 /***********************DataContainer***************************/
 
 .data-container {
@@ -40,8 +28,8 @@
 /***********************DataCards***************************/
 
 .data-card {
-  background-color: green;
-  border-radius: 10px;
+  /*background-color: rgb(211, 211, 211);*/
+  /*border-radius: 10px;*/
   display: flex;
   flex-direction: column;
   margin: 15px;
@@ -49,18 +37,24 @@
   width: 300px;
 }
 
-.data-card2 {
-  background-color: salmon;
-}
-
 .district-name {
+  background-color: rgb(211, 211, 211);
+  border-color: rgb(211, 211, 211);
   border-radius: 10px;
   margin-bottom: 5px;
-  margin: 15px 15px 10px 15px;
+  /*margin: 15px 15px 10px 15px;*/
   text-align: center;
 }
 
+.district-name:hover {
+  border: solid yellow 2px;
+  transition-property: border;
+  transition-duration: 0.1s;
+  transform: scale(1.1);
+}
+
 .year-stats {
+  background-color: rgb(211, 211, 211);
   align-items: center;
   border-radius: 10px;
   display: flex;
@@ -81,7 +75,9 @@
 }
 
 .district-compare {
+  align-items: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -90,8 +86,43 @@
   background-color: aquamarine;
   border-radius: 10px;
   display: flex;
-  flex: .9;
+  flex: .93;
   flex-direction: column;
-  justify-content: center;
+  /*justify-content: center;*/
   padding: 15px;
+}
+
+.reset-btn {
+  background-color: aquamarine;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  height: 25px;
+  margin: 10px;
+  width: 75px;
+}
+
+/*************************/
+
+.card-enter {
+  opacity: 0.01;
+  width: 0px;
+}
+
+.card-enter.card-enter-active {
+  opacity: 1;
+  width: 100px;
+  transition: 700ms;
+}
+
+.card-leave {
+  opacity: 1;
+  width: 100px;
+}
+
+.card-leave.card-leave-active {
+  opacity: 0.01;
+  width: 0px;
+  transition: 5000ms;
+  transform: scale(0.5);
 }
