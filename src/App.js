@@ -16,22 +16,14 @@ class App extends Component {
   this.state = {
     data: district.findAllMatches(),
     compare: [],
-    // compareCards: [],
-    // isHidden: true
   }
 
   this.handleChange = this.handleChange.bind(this);
   this.compareDistricts = this.compareDistricts.bind(this);
   this.removeCompare = this.removeCompare.bind(this);
   this.handleReset = this.handleReset.bind(this);
-  // this.toggleHidden = this.toggleHidden.bind(this);
 }
 
-  // toggleHidden() {
-  //   this.setState({
-  //     isHidden: !this.state.isHidden
-  //   })
-  // }
 
   handleChange(e) {
     this.setState({
@@ -46,7 +38,6 @@ class App extends Component {
   }
 
   compareDistricts(location) {
-    // console.log(e.target);
     const compareItem = district.findByName(location);
     const compareData = this.state.compare;
     const index = compareData.indexOf(compareItem);
@@ -55,29 +46,24 @@ class App extends Component {
       compareData.splice(index, 1)
       this.setState({
         compare: compareData,
-        // compareCards: compareData
       })
     }
     else if(compareData.length === 2){
       compareData.pop()
         this.setState({
           compare: compareData,
-          // compareCards: compareData
         })
         compareData.push(compareItem)
         this.setState({
           compare: compareData,
-          // compareCards: compareData
         })
     }
     else {
       this.state.compare.push(compareItem)
       this.setState({
         compare: compareData,
-        // compareCards: compareData
       })
     }
-
   }
 
   removeCompare(location) {
@@ -96,12 +82,12 @@ class App extends Component {
       <div>
         <Search handleChange={ this.handleChange } />
         <ReactCSSTransitionGroup transitionName='card' transitionEnterTimeout={700} transitionLeaveTimeout={700}>
-          <DataContainer schoolInfo={ this.state.compare } compareDistricts={ this.removeCompare } />
+          <DataContainer schoolInfo={ this.state.compare } compareDistricts={ this.removeCompare } display={ true }/>
         </ReactCSSTransitionGroup>
         {
           (this.state.compare).length === 2 && <DistrictCompare comparisonData={ this.state.compare } handleReset={ this.handleReset }/>
         }
-        <DataContainer schoolInfo={ this.state.data } compareDistricts={ this.compareDistricts }/>
+        <DataContainer schoolInfo={ this.state.data } compareDistricts={ this.compareDistricts } display={ false }/>
       </div>
     )
   }
