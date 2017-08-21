@@ -83,10 +83,10 @@ class App extends Component {
         <Search handleChange={ this.handleChange } />
         <ReactCSSTransitionGroup transitionName='card' transitionEnterTimeout={700} transitionLeaveTimeout={700}>
         <DataContainer schoolInfo={ this.state.compare } compareDistricts={ this.removeCompare } display={ true }/>
-        </ReactCSSTransitionGroup>
         {
           (this.state.compare).length === 2 && <DistrictCompare comparisonData={ this.state.compare } handleReset={ this.handleReset }/>
         }
+        </ReactCSSTransitionGroup>
         <DataContainer schoolInfo={ this.state.data } compareDistricts={ this.compareDistricts } display={ false }/>
       </div>
     )

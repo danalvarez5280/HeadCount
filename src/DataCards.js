@@ -8,10 +8,23 @@ export default class DataCards extends Component {
     this.state = {
       display: this.props.display,
     }
+    this.hideYearStats = this.hideYearStats.bind(this)
 }
 
+hideYearStats(e, location) {
+  this.state.display ? this.state.display = false : this.state.display = true;
+  this.setState({
+    display: this.state.display
+  })
+  this.props.compareDistricts(e, location)
+}
+  // toggleColor(e, location) {
+  //   e.target.classist.toggle('.blue')
+  //   this.props.compareDistricts(e, location)
+  // }
+
   render() {
-    const {location, yearData, compareDistricts, display} = this.props
+    const {location, yearData, compareDistricts} = this.props
     let schoolYear= Object.keys(yearData)
     let highScores = {
       color: 'aquamarine'
