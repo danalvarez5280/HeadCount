@@ -37,29 +37,58 @@
   width: 300px;
 }
 
+@keyframes slide {
+  0% {
+    right: -2000px;
+    z-index: -100;
+  }
+  100% {
+    right: 0;
+    z-index: -100;
+  }
+}
+
 .district-name {
-  background-color: rgb(211, 211, 211);
-  border-color: rgb(211, 211, 211);
+  animation-name: slide;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  background-color: lightgray;
   border-radius: 10px;
+  box-shadow: 1px 1px 5px black;
   margin-bottom: 5px;
+  position: relative;
   /*margin: 15px 15px 10px 15px;*/
   text-align: center;
+  transition-duration: .5s;
 }
 
 .district-name:hover {
-  border: solid yellow 2px;
-  transition-property: border;
-  transition-duration: 0.1s;
+  border: solid blue 2px;
+  box-shadow: 3px 3px 5px black;
   transform: scale(1.1);
+  transition-duration: .5s;
+}
+
+@keyframes dissolve {
+  from {opacity: 0;}
+  to {opacity: 100;}
 }
 
 .year-stats {
-  background-color: rgb(211, 211, 211);
   align-items: center;
+  animation-name: dissolve;
+  animation-duration: 1s;
+  background-color: lightgray;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.year-stats:hover {
+  border: 1px solid blue;
+  transform: scale(1.05);
+  transition-duration: .5s;
 }
 
 .year-stats p {
@@ -68,14 +97,10 @@
 
 /***********************APP***************************/
 
-.hide-year-stats {
-  display: none;
-  /*visibility: hidden;*/
-  /*display: hide;*/
-}
-
 .district-compare {
   align-items: center;
+  animation-name: dissolve;
+  animation-duration: 1s;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -83,8 +108,11 @@
 
 .comp-info {
   align-items: center;
+  animation-name: dissolve;
+  animation-duration: 1s;
   background-color: aquamarine;
   border-radius: 10px;
+  box-shadow: 1px 1px 5px black;
   display: flex;
   flex: .93;
   flex-direction: column;
