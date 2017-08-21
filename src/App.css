@@ -63,7 +63,7 @@
 }
 
 .district-name:hover {
-  border: solid blue 2px;
+  border: solid #58fcec 3px;
   box-shadow: 3px 3px 5px black;
   transform: scale(1.1);
   transition-duration: .5s;
@@ -86,7 +86,7 @@
 }
 
 .year-stats:hover {
-  border: 1px solid blue;
+  border: solid #58fcec 3px;
   transform: scale(1.05);
   transition-duration: .5s;
 }
@@ -121,7 +121,7 @@
 }
 
 .reset-btn {
-  background-color: aquamarine;
+  background-color: #58fCEC;
   border: none;
   border-radius: 3px;
   cursor: pointer;
