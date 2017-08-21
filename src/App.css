@@ -10,10 +10,11 @@
 
 .search {
   background-color: lightgray;
-  border: none;
-  border-radius: 3px;
+  border: .5px solid black;
+  border-radius: 5px;
   height: 40px;
   padding-left: 10px;
+  text-align: center;
   width: 300px;
 }
 
@@ -39,17 +40,17 @@
 
 @keyframes slide {
   0% {
-    right: -2000px;
+    top: -500px;
     z-index: -100;
   }
   100% {
-    right: 0;
+    top: 0;
     z-index: -100;
   }
 }
 
 .district-name {
-  animation-name: slide;
+  animation-name: dissolve;
   animation-duration: 2s;
   animation-iteration-count: 1;
   background-color: lightgray;
@@ -63,11 +64,17 @@
 }
 
 .district-name:hover {
+  background-color: green;
   border: solid blue 2px;
   box-shadow: 3px 3px 5px black;
   transform: scale(1.1);
   transition-duration: .5s;
 }
+
+.blue {
+  background-color: blue;
+}
+
 
 @keyframes dissolve {
   from {opacity: 0;}
@@ -76,13 +83,15 @@
 
 .year-stats {
   align-items: center;
-  animation-name: dissolve;
+  animation-name: slide;
   animation-duration: 1s;
   background-color: lightgray;
   border-radius: 10px;
+  box-shadow: 1px 1px 5px black;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 }
 
 .year-stats:hover {
@@ -100,7 +109,7 @@
 .district-compare {
   align-items: center;
   animation-name: dissolve;
-  animation-duration: 1s;
+  animation-duration: 2s;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -108,8 +117,6 @@
 
 .comp-info {
   align-items: center;
-  animation-name: dissolve;
-  animation-duration: 1s;
   background-color: aquamarine;
   border-radius: 10px;
   box-shadow: 1px 1px 5px black;
@@ -120,10 +127,18 @@
   padding: 15px;
 }
 
+.comp-info:hover,
+.reset-btn:hover {
+  background-color: green;
+  border: 1px solid blue;
+  transform: scale(1.05);
+  transition-duration: .5s;
+}
 .reset-btn {
   background-color: aquamarine;
   border: none;
   border-radius: 3px;
+  box-shadow: 1px 1px 5px black;
   cursor: pointer;
   height: 25px;
   margin: 10px;
