@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 const Search = ({ handleChange }) => {
 
   return(
-    <div className='search-field'>
+    <header className='search-field'>
+      <h1>HeadCount 2.0</h1>
       <input className='search' placeholder='Search District Name' onChange={ handleChange }/>
-    </div>
+    </header>
   )
 }
 

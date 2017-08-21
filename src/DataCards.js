@@ -14,7 +14,8 @@ export default class DataCards extends Component {
     const {location, yearData, compareDistricts, display} = this.props
     let schoolYear= Object.keys(yearData)
     let highScores = {
-      color: 'aquamarine'
+      fontWeight: 'bold',
+      color: '#00A896'
     }
     let lowScores = {
       color: 'red'

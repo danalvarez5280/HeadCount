@@ -2,14 +2,20 @@
 
 .search-field {
   align-items: center;
+  background-color: #BCEBCB !important;
   display: flex;
   justify-content: center;
   margin: 20px auto;
-  width: 300px;
+  width: 100%;
+  margin-top: 0;
+}
+
+.search-field h1 {
+  margin-right: 20px;
 }
 
 .search {
-  background-color: lightgray;
+  background-color: #F7F7FF;
   border: none;
   border-radius: 3px;
   height: 40px;
@@ -52,7 +58,7 @@
   animation-name: slide;
   animation-duration: 2s;
   animation-iteration-count: 1;
-  background-color: lightgray;
+  background-color: #F7F7FF;
   border-radius: 10px;
   box-shadow: 1px 1px 5px black;
   margin-bottom: 5px;
@@ -78,7 +84,7 @@
   align-items: center;
   animation-name: dissolve;
   animation-duration: 1s;
-  background-color: lightgray;
+  background-color: #F7F7FF;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -110,7 +116,7 @@
   align-items: center;
   animation-name: dissolve;
   animation-duration: 1s;
-  background-color: aquamarine;
+  background-color: #F7F7FF;
   border-radius: 10px;
   box-shadow: 1px 1px 5px black;
   display: flex;
