@@ -13,7 +13,8 @@
 }
 
 .search-field h1 {
-  margin-right: 20px;
+  font-size: 2.5em;
+  margin: 20px;
 }
 
 .search {
@@ -152,4 +153,16 @@
   height: 30px;
   margin: 10px;
   width: 100px;
+}
+
+@media screen and (max-width:650px) {
+  .search-field {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .search {
+    margin-bottom: 20px;
+  }
 }
