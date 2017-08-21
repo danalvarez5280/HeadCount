@@ -5,20 +5,20 @@ export default class DataCards extends Component {
  constructor(props) {
   super(props)
 
-    this.state = {
-      display: this.props.display,
-    }
+  this.state = {
+    display: this.props.display,
+  }
 }
 
   render() {
-    const {location, yearData, compareDistricts, display} = this.props
+    const {location, yearData, compareDistricts} = this.props
     let schoolYear= Object.keys(yearData)
     let highScores = {
       fontWeight: 'bold',
       color: '#00A896'
     }
     let lowScores = {
-      color: 'red'
+      color: '#8D3B72'
     }
     let percentages = schoolYear.map( (val, i) => {
       if(this.state.display) {
@@ -35,7 +35,7 @@ export default class DataCards extends Component {
         <div className='district-name'>
           <h2>{ location }</h2>
         </div>
-        <div ref={ (element => this.div = element) } className='year-stats' >
+        <div className='year-stats' >
           { percentages }
         </div>
       </div>
@@ -44,7 +44,7 @@ export default class DataCards extends Component {
 }
 
 DataCards.propTypes = {
-  location: PropTypes.string.isRequired,
+  location: PropTypes.string,
   yearData: PropTypes.object.isRequired,
   compareDistricts: PropTypes.func
 }

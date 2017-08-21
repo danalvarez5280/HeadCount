@@ -16,7 +16,8 @@ const DataContainer = ({ schoolInfo, compareDistricts, display }) => {
 
 DataContainer.propTpes = {
   schoolInfo: PropTypes.array.isRequired,
-  compareDistricts: PropTypes.func
+  compareDistricts: PropTypes.func,
+  display: PropTypes.bool.isRequired
 }
 
 export default DataContainer;

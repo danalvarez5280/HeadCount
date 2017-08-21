@@ -1,8 +1,10 @@
+
 /***********************Search***************************/
 
 .search-field {
   align-items: center;
-  background-color: #BCEBCB !important;
+  background-color: #BCEBCB;
+  color: #6D6D72;
   display: flex;
   justify-content: center;
   margin: 20px auto;
@@ -16,10 +18,12 @@
 
 .search {
   background-color: #F7F7FF;
-  border: none;
-  border-radius: 3px;
+  border: 1.5px solid #939196;
+  border-radius: 5px;
+  cursor: pointer;
   height: 40px;
   padding-left: 10px;
+  text-align: center;
   width: 300px;
 }
 
@@ -34,8 +38,6 @@
 /***********************DataCards***************************/
 
 .data-card {
-  /*background-color: rgb(211, 211, 211);*/
-  /*border-radius: 10px;*/
   display: flex;
   flex-direction: column;
   margin: 15px;
@@ -45,34 +47,39 @@
 
 @keyframes slide {
   0% {
-    right: -2000px;
+    top: -500px;
     z-index: -100;
   }
   100% {
-    right: 0;
+    top: 0;
     z-index: -100;
   }
 }
 
 .district-name {
-  animation-name: slide;
+  animation-name: dissolve;
   animation-duration: 2s;
   animation-iteration-count: 1;
   background-color: #F7F7FF;
+  border: solid #BCEBCB 3px;
   border-radius: 10px;
   box-shadow: 1px 1px 5px black;
+  color: #6D6F72;
   margin-bottom: 5px;
   position: relative;
-  /*margin: 15px 15px 10px 15px;*/
   text-align: center;
   transition-duration: .5s;
 }
 
 .district-name:hover {
-  border: solid #58fcec 3px;
+  border: solid #8D3B72 3px;
   box-shadow: 3px 3px 5px black;
   transform: scale(1.1);
   transition-duration: .5s;
+}
+
+.blue {
+  background-color: blue;
 }
 
 @keyframes dissolve {
@@ -82,19 +89,16 @@
 
 .year-stats {
   align-items: center;
-  animation-name: dissolve;
+  animation-name: slide;
   animation-duration: 1s;
   background-color: #F7F7FF;
   border-radius: 10px;
+  box-shadow: 1px 1px 5px black;
   display: flex;
   flex-direction: column;
+  font-size: 1.2em;
   justify-content: center;
-}
-
-.year-stats:hover {
-  border: solid #58fcec 3px;
-  transform: scale(1.05);
-  transition-duration: .5s;
+  position: relative;
 }
 
 .year-stats p {
@@ -106,7 +110,8 @@
 .district-compare {
   align-items: center;
   animation-name: dissolve;
-  animation-duration: 1s;
+  animation-duration: 2s;
+  color: #6D6F72;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -114,49 +119,37 @@
 
 .comp-info {
   align-items: center;
-  animation-name: dissolve;
+  animation-name: slide;
   animation-duration: 1s;
-  background-color: #F7F7FF;
+  background-color: #BCEBCB;
   border-radius: 10px;
   box-shadow: 1px 1px 5px black;
   display: flex;
   flex: .93;
   flex-direction: column;
-  /*justify-content: center;*/
+  font-weight: bold;
   padding: 15px;
+  position: relative;
+}
+
+.reset-btn:hover {
+  background-color: #BCEBCB;
+  transform: scale(1.05);
+  transition-duration: .5s;
 }
 
 .reset-btn {
-  background-color: #58fCEC;
+  animation-name: dissolve;
+  animation-duration: 1s;
+  background-color: #F7F7FF;
   border: none;
   border-radius: 3px;
+  box-shadow: 1px 1px 5px black;
+  color: #6D6F72;
   cursor: pointer;
-  height: 25px;
+  font-size: 1em;
+  font-weight: bold;
+  height: 30px;
   margin: 10px;
-  width: 75px;
-}
-
-/*************************/
-
-.card-enter {
-  opacity: 0.01;
-  width: 0px;
-}
-
-.card-enter.card-enter-active {
-  opacity: 1;
   width: 100px;
-  transition: 700ms;
-}
-
-.card-leave {
-  opacity: 1;
-  width: 100px;
-}
-
-.card-leave.card-leave-active {
-  opacity: 0.01;
-  width: 0px;
-  transition: 5000ms;
-  transform: scale(0.5);
 }

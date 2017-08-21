@@ -5,7 +5,6 @@ import Search from './Search';
 import DataContainer from './DataContainer';
 import DistrictCompare from './DistrictCompare';
 import './App.css';
-import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 const district = new DistrictRepository(kinderData)
 
@@ -19,11 +18,10 @@ class App extends Component {
   }
 
   this.handleChange = this.handleChange.bind(this);
+  this.handleReset = this.handleReset.bind(this);
   this.compareDistricts = this.compareDistricts.bind(this);
   this.removeCompare = this.removeCompare.bind(this);
-  this.handleReset = this.handleReset.bind(this);
 }
-
 
   handleChange(e) {
     this.setState({
@@ -81,9 +79,7 @@ class App extends Component {
     return (
       <div>
         <Search handleChange={ this.handleChange } />
-        <ReactCSSTransitionGroup transitionName='card' transitionEnterTimeout={700} transitionLeaveTimeout={700}>
         <DataContainer schoolInfo={ this.state.compare } compareDistricts={ this.removeCompare } display={ true }/>
-        </ReactCSSTransitionGroup>
         {
           (this.state.compare).length === 2 && <DistrictCompare comparisonData={ this.state.compare } handleReset={ this.handleReset }/>
         }
